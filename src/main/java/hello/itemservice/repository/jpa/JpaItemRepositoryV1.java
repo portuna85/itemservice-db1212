@@ -26,7 +26,6 @@ public class JpaItemRepositoryV1 implements ItemRepository {
         this.em = em;
     }
 
-
     @Override
     public Item save(Item item) {
         em.persist(item);
@@ -43,7 +42,6 @@ public class JpaItemRepositoryV1 implements ItemRepository {
 
     @Override
     public Optional<Item> findById(Long id) {
-
         Item item = em.find(Item.class, id);
         return Optional.ofNullable(item);
     }
@@ -85,7 +83,6 @@ public class JpaItemRepositoryV1 implements ItemRepository {
         if (maxPrice != null) {
             query.setParameter("maxPrice", maxPrice);
         }
-
         return query.getResultList();
     }
 }
