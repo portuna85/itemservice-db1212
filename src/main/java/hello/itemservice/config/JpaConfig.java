@@ -2,6 +2,8 @@ package hello.itemservice.config;
 
 import hello.itemservice.repository.ItemRepository;
 import hello.itemservice.repository.jpa.JpaItemRepositoryV1;
+import hello.itemservice.repository.mybatis.ItemMapper;
+import hello.itemservice.repository.mybatis.MyBatisItemRepository;
 import hello.itemservice.service.ItemService;
 import hello.itemservice.service.ItemServiceV1;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +13,13 @@ import org.springframework.context.annotation.Configuration;
 import javax.persistence.EntityManager;
 
 @Configuration
-@RequiredArgsConstructor
 public class JpaConfig {
 
     private final EntityManager em;
+
+    public JpaConfig(EntityManager em) {
+        this.em = em;
+    }
 
     @Bean
     public ItemService itemService() {
@@ -25,4 +30,5 @@ public class JpaConfig {
     public ItemRepository itemRepository() {
         return new JpaItemRepositoryV1(em);
     }
+
 }

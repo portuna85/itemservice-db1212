@@ -2,12 +2,16 @@ package hello.itemservice.calc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
 import static java.util.Arrays.sort;
 
 @Slf4j
+@Transactional
+@SpringBootTest
 public class Lotto {
     private final static Integer[] lottoResult = new Integer[6];
 
